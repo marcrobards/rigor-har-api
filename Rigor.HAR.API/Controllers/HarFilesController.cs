@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Rigor.HAR.API.Services;
-
-namespace Rigor.HAR.API.Controllers
+﻿namespace Rigor.HAR.API.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Rigor.HAR.API.Services;
+    using System.Threading.Tasks;
+
     [Produces("application/json")]
     [Route("api/harfiles")]
     public class HarFilesController : Controller

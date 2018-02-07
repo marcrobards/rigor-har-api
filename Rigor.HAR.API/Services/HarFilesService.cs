@@ -1,11 +1,8 @@
 ﻿namespace Rigor.HAR.API.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
     using Rigor.HAR.API.Data;
     using Rigor.HAR.API.Models;
+    using System.Threading.Tasks;
 
     public class HarFilesService : IHarFilesService
     {
