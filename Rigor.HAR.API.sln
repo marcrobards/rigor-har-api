@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rigor.HAR.API", "Rigor.HAR.API\Rigor.HAR.API.csproj", "{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDEDFB07-8C28-4376-9AFF-76146B70E541}
+	EndGlobalSection
+EndGlobal
