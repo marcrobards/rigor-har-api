@@ -22,11 +22,14 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<ApiDbContext>(opt => opt.UseInMemoryDatabase(ApiConstants.HarDB));
+            services.AddDbContext<ApiDbContext>(opt => opt
+                .UseInMemoryDatabase(ApiConstants.HarDB));
+                //.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IHarFileRepository, HarFileRepository>();
             services.AddScoped<IHarFilesService, HarFilesService>();
+
+            services.AddResponseCompression();
 
             services.AddMvc();
         }
@@ -41,6 +44,8 @@
 
             var dbContext = serviceProvider.GetService<ApiDbContext>();
             AddTestData(dbContext);
+
+            app.UseResponseCompression();
 
             app.UseMvc();
         }
