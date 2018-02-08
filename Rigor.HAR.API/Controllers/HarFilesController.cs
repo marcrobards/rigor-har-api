@@ -1,6 +1,7 @@
 ﻿namespace Rigor.HAR.API.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using Rigor.HAR.API.Models;
     using Rigor.HAR.API.Services;
@@ -30,7 +31,7 @@
         {
             var item = await this._harFilesService.GetByIdAsync(id);
 
-            return new ObjectResult(item);
+            return new ObjectResult(item.JSONContent);
         }
 
         [HttpPost]
@@ -50,7 +51,7 @@
 
                         harFile.URL = (string)firstPage["title"];
                         harFile.StartedDateTime = DateTime.Parse(firstPage["startedDateTime"].ToString());
-                        harFile.JSONContent = harFileData.ToString();
+                        harFile.JSONString = JsonConvert.SerializeObject(harFileData);
 
                         await this._harFilesService.SaveAsync(harFile);
                     }
@@ -77,7 +78,7 @@
 
                             existingHarFile.URL = (string)firstPage["title"];
                             existingHarFile.StartedDateTime = DateTime.Parse(firstPage["startedDateTime"].ToString());
-                            existingHarFile.JSONContent = harFileData.ToString();
+                            existingHarFile.JSONString = JsonConvert.SerializeObject(harFileData);
 
                             await this._harFilesService.UpdateAsync(existingHarFile);
                         }

@@ -5,6 +5,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Newtonsoft.Json.Linq;
     using Rigor.HAR.API.Data;
     using Rigor.HAR.API.Models;
     using Rigor.HAR.API.Services;
@@ -57,7 +58,7 @@
                 HarFileId = 1,
                 StartedDateTime = DateTime.Now,
                 URL = "https://www.microsoft.com/net/",
-                JSONContent = ""
+                JSONString = "{}"
             };
 
             dbContext.HarFiles.Add(test);

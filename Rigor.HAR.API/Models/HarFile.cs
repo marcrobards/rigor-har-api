@@ -1,5 +1,6 @@
 ﻿namespace Rigor.HAR.API.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -14,7 +15,15 @@
 
         public DateTime StartedDateTime { get; set; }
 
-        public string JSONContent { get; set; }
+        public string JSONString { get; set; }
+
+        public object JSONContent
+        {
+            get
+            {
+                return this.JSONString != null ? JsonConvert.DeserializeObject(this.JSONString) : new Object();
+            }
+        }
 
     }
 }
