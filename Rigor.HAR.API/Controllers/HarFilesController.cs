@@ -20,14 +20,12 @@
             this._harFilesService = harFilesService;
         }
 
-        [Produces("application/json")]
         [HttpGet]
         public async Task<IEnumerable<HarFile>> Get()
         {
             return await this._harFilesService.GetAllAsync();
         }
 
-        [Produces("application/json")]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(long id)
         {
