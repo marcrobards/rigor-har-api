@@ -1,7 +1,6 @@
 ﻿namespace Rigor.HAR.API.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using Rigor.HAR.API.Models;
     using Rigor.HAR.API.Services;
