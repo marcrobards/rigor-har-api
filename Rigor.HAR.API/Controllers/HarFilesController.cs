@@ -100,6 +100,12 @@
             return Ok();
         }
 
+        [HttpGet("blocked/{id}")]
+        public async Task<IEnumerable<Entry>> GetBlockedEntries(long id)
+        {
+            return await this._harFilesService.GetBlockedEntries(id);
+        }
+
         private bool ValidateHarFile(Har harData)
         {
             try
