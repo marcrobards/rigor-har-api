@@ -84,5 +84,76 @@
                 throw new Exception("Unhandled Service Exception", ex);
             }
         }
+
+        public async Task<double> GetAverageBodySize(long id)
+        {
+            try
+            {
+                var harFile = await this._harFileRepository.GetByIdAsync(id);
+                if (harFile == null) 
+                {
+                    throw new Exception($"HarFile {id} not found.");
+                }
+
+                var harModel = HarConvert.Deserialize(harFile.JSONString);
+
+                var avgBodySize = harModel.Log.Entries.Average(e => e.Response.BodySize);
+
+                return avgBodySize;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unhandled Service Exception", ex);
+            }
+        }
+
+        public async Task<double> GetTotalBodySize(long id)
+        {
+            try
+            {
+                var harFile = await this._harFileRepository.GetByIdAsync(id);
+                if (harFile == null) 
+                {
+                    throw new Exception($"HarFile {id} not found.");
+                }
+
+                var harModel = HarConvert.Deserialize(harFile.JSONString);
+
+                var totalBodySize = harModel.Log.Entries.Sum(e => e.Response.BodySize);
+
+                return totalBodySize;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unhandled Service Exception", ex);
+            }
+        }
+
+        public async Task<IEnumerable<string>> GetRequestUrlsContains(long id, string contains)
+        {
+            if (string.IsNullOrEmpty(contains))
+            {
+                throw new ArgumentNullException(nameof(contains));
+            }
+
+            try
+            {
+                var harFile = await this._harFileRepository.GetByIdAsync(id);
+                if (harFile == null) 
+                {
+                    throw new Exception($"HarFile {id} not found.");
+                }
+
+                var harModel = HarConvert.Deserialize(harFile.JSONString);
+
+                var urlsFound = harModel.Log.Entries.Select(e => e.Request.Url.AbsoluteUri).Where(u => u.Contains(contains));
+
+                return urlsFound;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unhandled Service Exception", ex);
+            }
+        }
     }
 }

@@ -18,5 +18,11 @@
         Task DeleteAsync(long id);
 
         Task<IEnumerable<Entry>> GetBlockedEntries(long id);
+
+        Task<double> GetAverageBodySize(long id);
+
+        Task<double> GetTotalBodySize(long id);
+
+        Task<IEnumerable<string>> GetRequestUrlsContains(long id, string contains);
     }
 }

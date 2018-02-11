@@ -106,6 +106,26 @@
             return await this._harFilesService.GetBlockedEntries(id);
         }
 
+        [HttpGet("bodySize/{id}")]
+        public async Task<object> GetBodySize(long id)
+        {
+            var averageBodySize = await this._harFilesService.GetAverageBodySize(id);
+
+            var totalBodySize = await this._harFilesService.GetTotalBodySize(id);
+
+            var result = new { AverageBodySize = averageBodySize, TotalBodySize = totalBodySize };
+
+            return result;
+        }
+
+        [HttpGet("responseUrlContains/{id}/{contains}")]
+        public async Task<IEnumerable<string>> GetResponseUrlByContains(long id, string contains)
+        {
+            var responsesFound = await this._harFilesService.GetRequestUrlsContains(id, contains);
+
+            return responsesFound;
+        }
+
         private bool ValidateHarFile(Har harData)
         {
             try
