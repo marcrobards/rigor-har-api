@@ -120,6 +120,7 @@
         {
             if (!ModelState.IsValid)
             {
+                // could have more robust error object returned
                 return BadRequest(ModelState);
             }
 
@@ -127,6 +128,7 @@
 
             if (existingHarFile == null)
             {
+                // returing 404 in this case, could use 409 or 403
                 return NotFound();
             }
             else
