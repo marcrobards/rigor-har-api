@@ -1,4 +1,7 @@
 # rigor-har-api
+
+## Overview
+
 A REST API for storing and analyzing HAR files.
 
 There is a container object to encapsulate the HAR file data:
@@ -12,49 +15,49 @@ There is a container object to encapsulate the HAR file data:
 
 CRUD operations follow standard REST rules:
 
-**GET**
+### GET
 
     api/harfiles/{id}
 
 GET will return a 404 error if {id} is not found.
 
-**POST**
+### POST
 
     api/harfiles
 
 POST performs manual valiation.
 
-**PUT**
+### PUT
 
     api/harfiles/{id}
 
 PUT performs model-based validation and will return a list of errors if validaiton fails. PUT returns a 404 error if {id} is not found.
 
-**DELETE**
+### DELETE
 
     api/harfiles{id}
 
-
 ## Helper Functions
-**GET Content**
+
+### GET Content
 
     api/harfiles/1/content
 
 GET Content will return the HAR file data only without the container object for the specified {id} or a 404 error if {id} is not found.
 
-**GET All**
+### GET All
 
     api/harfiles
 
 GET All returns all stored HAR files.
 
-**GET Blocked**
+### GET Blocked
 
     api/harfiles/{id}/blocked
 
 GET Blocked will return a list of Entries ordered by blocked timing descending.
 
-**GET BodySize**
+### GET BodySize
 
     api/harfiles/{id}/bodysize
 
@@ -65,9 +68,8 @@ GET BodySize will return an object with the average and total bodySize across al
         "totalBodySize": {"type": "number"}
     }
 
-**GET Response URLs by Filter**
+### GET Response URLs by Filter
 
     api/harfiles/{id}/responseurl/{filter}
 
 GET Response URLs by Filter will return a list of all request URLs that contain {filter}.
-
