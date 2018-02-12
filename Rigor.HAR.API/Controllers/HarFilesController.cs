@@ -93,6 +93,7 @@
             {
                 var harData = HarConvert.Deserialize(harFileData.ToString());
 
+                // validating manually
                 var valid = this.ValidateHarFile(harData);
 
                 if (valid)
@@ -118,6 +119,7 @@
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(long id, [FromBody]Har harData)
         {
+            // validating by model
             if (!ModelState.IsValid)
             {
                 // could have more robust error object returned
