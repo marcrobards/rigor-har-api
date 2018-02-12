@@ -73,3 +73,6 @@ GET BodySize will return an object with the average and total bodySize across al
     api/harfiles/{id}/responseurl/{filter}
 
 GET Response URLs by Filter will return a list of all request URLs that contain {filter}.
+
+The file used for testing is Rigor.HAR.API.Tests/www.microsoft.com.har, taken from https://www.microsoft.com/net/
+
