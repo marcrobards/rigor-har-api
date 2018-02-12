@@ -13,6 +13,8 @@ There is a container object to encapsulate the HAR file data:
         "jsonContent" : {"type": "object"}
     }
 
+The entire content from the HAR file is stored in the jsonContent property.
+
 CRUD operations follow standard REST rules:
 
 ### GET
