@@ -2,7 +2,7 @@
 
 ## Overview
 
-A REST API for storing and analyzing HAR files.
+A REST API for storing and analyzing HAR files implemented in .NET Core 2.0. It uses the built-in dependency injection framework, Entity Framework Core for data storage, and Moq and xUnit for testing.
 
 There is a container object to encapsulate the HAR file data:
 
