@@ -3,12 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rigor.HAR.API", "Rigor.HAR.API\Rigor.HAR.API.csproj", "{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rigor.HAR.API", "Rigor.HAR.API\Rigor.HAR.API.csproj", "{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6FBFBC2-A3B0-4EFC-B8B0-5E7D99A42E15}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rigor.HAR.API.Tests", "Rigor.HAR.API.Tests\Rigor.HAR.API.Tests.csproj", "{999B9A3B-5B3D-4671-9938-A7D521A9E077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0A470C-C383-4FC9-A1B4-5DD3017CB3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999B9A3B-5B3D-4671-9938-A7D521A9E077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999B9A3B-5B3D-4671-9938-A7D521A9E077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999B9A3B-5B3D-4671-9938-A7D521A9E077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999B9A3B-5B3D-4671-9938-A7D521A9E077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
