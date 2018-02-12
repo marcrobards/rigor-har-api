@@ -23,6 +23,6 @@
 
         Task<double> GetTotalBodySize(long id);
 
-        Task<IEnumerable<string>> GetRequestUrlsContains(long id, string contains);
+        Task<IEnumerable<string>> GetRequestUrlsByFilter(long id, string filter);
     }
 }

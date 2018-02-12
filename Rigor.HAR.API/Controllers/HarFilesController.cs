@@ -35,7 +35,55 @@
         {
             var item = await this._harFilesService.GetByIdAsync(id);
 
-            return new ObjectResult(item.JSONContent);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return new ObjectResult(item);
+            }
+        }
+
+        [HttpGet("{id}/content")]
+        public async Task<IActionResult> GetContent(long id)
+        {
+            var item = await this._harFilesService.GetByIdAsync(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return new ObjectResult(item.JSONContent);
+            }
+        }
+
+        [HttpGet("{id}/blocked")]
+        public async Task<IEnumerable<Entry>> GetBlockedEntries(long id)
+        {
+            return await this._harFilesService.GetBlockedEntries(id);
+        }
+
+        [HttpGet("{id}/bodySize")]
+        public async Task<object> GetBodySize(long id)
+        {
+            var averageBodySize = await this._harFilesService.GetAverageBodySize(id);
+
+            var totalBodySize = await this._harFilesService.GetTotalBodySize(id);
+
+            var result = new { AverageBodySize = averageBodySize, TotalBodySize = totalBodySize };
+
+            return result;
+        }
+
+        [HttpGet("{id}/responseUrl/{filter}")]
+        public async Task<IEnumerable<string>> GetResponseUrlByFilter(long id, string filter)
+        {
+            var responsesFound = await this._harFilesService.GetRequestUrlsByFilter(id, filter);
+
+            return responsesFound;
         }
 
         [HttpPost]
@@ -64,7 +112,7 @@
                 }
             }
 
-            return Ok();
+            return CreatedAtAction(nameof(Post), null);
         }
 
         [HttpPut("{id}")]
@@ -77,7 +125,11 @@
 
             var existingHarFile = await this._harFilesService.GetByIdAsync(id);
 
-            if (existingHarFile != null)
+            if (existingHarFile == null)
+            {
+                return NotFound();
+            }
+            else
             {
                 var firstPage = harData.Log.Pages.First();
 
@@ -97,33 +149,7 @@
         {
             await this._harFilesService.DeleteAsync(id);
 
-            return Ok();
-        }
-
-        [HttpGet("blocked/{id}")]
-        public async Task<IEnumerable<Entry>> GetBlockedEntries(long id)
-        {
-            return await this._harFilesService.GetBlockedEntries(id);
-        }
-
-        [HttpGet("bodySize/{id}")]
-        public async Task<object> GetBodySize(long id)
-        {
-            var averageBodySize = await this._harFilesService.GetAverageBodySize(id);
-
-            var totalBodySize = await this._harFilesService.GetTotalBodySize(id);
-
-            var result = new { AverageBodySize = averageBodySize, TotalBodySize = totalBodySize };
-
-            return result;
-        }
-
-        [HttpGet("responseUrlContains/{id}/{contains}")]
-        public async Task<IEnumerable<string>> GetResponseUrlByContains(long id, string contains)
-        {
-            var responsesFound = await this._harFilesService.GetRequestUrlsContains(id, contains);
-
-            return responsesFound;
+            return new ObjectResult(null);
         }
 
         private bool ValidateHarFile(Har harData)

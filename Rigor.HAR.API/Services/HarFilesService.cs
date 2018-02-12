@@ -129,11 +129,11 @@
             }
         }
 
-        public async Task<IEnumerable<string>> GetRequestUrlsContains(long id, string contains)
+        public async Task<IEnumerable<string>> GetRequestUrlsByFilter(long id, string filter)
         {
-            if (string.IsNullOrEmpty(contains))
+            if (string.IsNullOrEmpty(filter))
             {
-                throw new ArgumentNullException(nameof(contains));
+                throw new ArgumentNullException(nameof(filter));
             }
 
             try
@@ -146,7 +146,7 @@
 
                 var harModel = HarConvert.Deserialize(harFile.JSONString);
 
-                var urlsFound = harModel.Log.Entries.Select(e => e.Request.Url.AbsoluteUri).Where(u => u.Contains(contains));
+                var urlsFound = harModel.Log.Entries.Select(e => e.Request.Url.AbsoluteUri).Where(u => u.Contains(filter));
 
                 return urlsFound;
             }

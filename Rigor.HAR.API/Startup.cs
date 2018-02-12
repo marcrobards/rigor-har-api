@@ -43,8 +43,8 @@
                 app.UseDeveloperExceptionPage();
             }
 
-            var dbContext = serviceProvider.GetService<ApiDbContext>();
-            AddTestData(dbContext);
+            //var dbContext = serviceProvider.GetService<ApiDbContext>();
+            //AddTestData(dbContext);
 
             app.UseResponseCompression();
 
@@ -58,7 +58,7 @@
                 HarFileId = 1,
                 StartedDateTime = DateTime.Now,
                 URL = "https://www.microsoft.com/net/",
-                JSONString = "{}"
+                JSONString = null
             };
 
             dbContext.HarFiles.Add(test);
