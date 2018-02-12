@@ -65,10 +65,10 @@
 
         public async Task<IEnumerable<Entry>> GetBlockedEntries(long id)
         {
-            try 
+            try
             {
                 var harFile = await this._harFileRepository.GetByIdAsync(id);
-                if (harFile == null) 
+                if (harFile == null)
                 {
                     throw new Exception($"HarFile {id} not found.");
                 }
@@ -90,7 +90,7 @@
             try
             {
                 var harFile = await this._harFileRepository.GetByIdAsync(id);
-                if (harFile == null) 
+                if (harFile == null)
                 {
                     throw new Exception($"HarFile {id} not found.");
                 }
@@ -112,7 +112,7 @@
             try
             {
                 var harFile = await this._harFileRepository.GetByIdAsync(id);
-                if (harFile == null) 
+                if (harFile == null)
                 {
                     throw new Exception($"HarFile {id} not found.");
                 }
@@ -139,7 +139,7 @@
             try
             {
                 var harFile = await this._harFileRepository.GetByIdAsync(id);
-                if (harFile == null) 
+                if (harFile == null)
                 {
                     throw new Exception($"HarFile {id} not found.");
                 }
