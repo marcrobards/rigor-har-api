@@ -25,13 +25,13 @@ GET will return a 404 error if {id} is not found.
 
     api/harfiles
 
-POST performs manual valiation.
+POST performs manual valiation as an example.
 
 ### PUT
 
     api/harfiles/{id}
 
-PUT performs model-based validation and will return a list of errors if validaiton fails. PUT returns a 404 error if {id} is not found.
+PUT performs model-based validation (preferred) and will return a list of errors if validaiton fails. PUT returns a 404 error if {id} is not found.
 
 ### DELETE
 
