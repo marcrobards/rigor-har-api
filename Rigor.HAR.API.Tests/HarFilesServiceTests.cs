@@ -39,7 +39,7 @@ namespace Rigor.HAR.API.Tests
             {
                 StartedDateTime = DateTime.Now,
                 URL = "https://www.microsoft.com/net",
-                JSONString = File.ReadAllText(@"www.microsoft.com.har")
+                HarContentString = File.ReadAllText(@"www.microsoft.com.har")
             };
 
             await this._harFileRepository.SaveAsync(harFile);
@@ -56,7 +56,7 @@ namespace Rigor.HAR.API.Tests
             {
                 StartedDateTime = DateTime.Now,
                 URL = "https://www.microsoft.com/net",
-                JSONString = File.ReadAllText(@"www.microsoft.com.har")
+                HarContentString = File.ReadAllText(@"www.microsoft.com.har")
             };
 
             await this._harFileRepository.SaveAsync(harFile);

@@ -73,7 +73,7 @@
                     throw new Exception($"HarFile {id} not found.");
                 }
 
-                var harModel = HarConvert.Deserialize(harFile.JSONString);
+                var harModel = HarConvert.Deserialize(harFile.HarContentString);
 
                 var blockedEntires = harModel.Log.Entries.OrderByDescending(e => e.Timings.Blocked);
 
@@ -95,7 +95,7 @@
                     throw new Exception($"HarFile {id} not found.");
                 }
 
-                var harModel = HarConvert.Deserialize(harFile.JSONString);
+                var harModel = HarConvert.Deserialize(harFile.HarContentString);
 
                 var avgBodySize = harModel.Log.Entries.Average(e => e.Response.BodySize);
 
@@ -117,7 +117,7 @@
                     throw new Exception($"HarFile {id} not found.");
                 }
 
-                var harModel = HarConvert.Deserialize(harFile.JSONString);
+                var harModel = HarConvert.Deserialize(harFile.HarContentString);
 
                 var totalBodySize = harModel.Log.Entries.Sum(e => e.Response.BodySize);
 
@@ -144,7 +144,7 @@
                     throw new Exception($"HarFile {id} not found.");
                 }
 
-                var harModel = HarConvert.Deserialize(harFile.JSONString);
+                var harModel = HarConvert.Deserialize(harFile.HarContentString);
 
                 var urlsFound = harModel.Log.Entries.Select(e => e.Request.Url.AbsoluteUri).Where(u => u.Contains(filter));
 

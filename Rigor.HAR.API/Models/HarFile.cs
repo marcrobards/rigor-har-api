@@ -15,13 +15,13 @@
 
         public DateTime StartedDateTime { get; set; }
 
-        public string JSONString { get; set; }
+        public string HarContentString { get; set; }
 
-        public object JSONContent
+        public object HarContent
         {
             get
             {
-                return this.JSONString != null ? JsonConvert.DeserializeObject(this.JSONString) : new Object();
+                return this.HarContentString != null ? JsonConvert.DeserializeObject(this.HarContentString) : new Object();
             }
         }
 

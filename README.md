@@ -10,10 +10,10 @@ There is a container object to encapsulate the HAR file data:
         "harFileId": {"type": "number"},
         "url" : {"type": "string"},
         "startedDateTime" : {"type": "date-time" }
-        "jsonContent" : {"type": "object"}
+        "harContent" : {"type": "object"}
     }
 
-The entire content from the HAR file is stored in the jsonContent property.
+The entire content from the HAR file is stored in the harContent property.
 
 CRUD operations follow standard REST rules:
 

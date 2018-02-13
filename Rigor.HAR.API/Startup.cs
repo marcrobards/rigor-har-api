@@ -58,7 +58,7 @@
                 HarFileId = 1,
                 StartedDateTime = DateTime.Now,
                 URL = "https://www.microsoft.com/net/",
-                JSONString = null
+                HarContentString = null
             };
 
             dbContext.HarFiles.Add(test);

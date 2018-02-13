@@ -54,7 +54,7 @@
             }
             else
             {
-                return new ObjectResult(item.JSONContent);
+                return new ObjectResult(item.HarContent);
             }
         }
 
@@ -101,7 +101,7 @@
                     var harFile = new HarFile();
                     harFile.URL = firstPage.Title;
                     harFile.StartedDateTime = firstPage.StartedDateTime;
-                    harFile.JSONString = JsonConvert.SerializeObject(harFileData);
+                    harFile.HarContentString = JsonConvert.SerializeObject(harFileData);
 
                     await this._harFilesService.SaveAsync(harFile);
                 }
@@ -138,7 +138,7 @@
                 var harFile = new HarFile();
                 existingHarFile.URL = firstPage.Title;
                 existingHarFile.StartedDateTime = firstPage.StartedDateTime;
-                existingHarFile.JSONString = JsonConvert.SerializeObject(harData);
+                existingHarFile.HarContentString = JsonConvert.SerializeObject(harData);
 
                 await this._harFilesService.UpdateAsync(existingHarFile);
             }
