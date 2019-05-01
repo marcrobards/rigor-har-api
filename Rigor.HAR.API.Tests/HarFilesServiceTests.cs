@@ -18,8 +18,6 @@ namespace Rigor.HAR.API.Tests
 
         private List<HarFile> _harFiles;
 
-        private Har _harFile;
-
         private IHarFilesService _harFilesService;
 
 
