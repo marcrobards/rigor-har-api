@@ -1,11 +1,12 @@
 ﻿namespace Rigor.HAR.API.Models
 {
+    using HarSharp;
     using Newtonsoft.Json;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("HarFile")]
+    [Table("HarFiles")]
     public class HarFile
     {
         [Key]
@@ -17,11 +18,11 @@
 
         public string HarContentString { get; set; }
 
-        public object HarContent
+        public Har HarContent
         {
             get
             {
-                return this.HarContentString != null ? JsonConvert.DeserializeObject(this.HarContentString) : new Object();
+                return this.HarContentString != null ? JsonConvert.DeserializeObject<Har>(this.HarContentString) : new Har();
             }
         }
 

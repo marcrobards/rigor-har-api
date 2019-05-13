@@ -1,15 +1,14 @@
 ﻿namespace Rigor.HAR.API
 {
+    using System;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Newtonsoft.Json.Linq;
     using Rigor.HAR.API.Data;
     using Rigor.HAR.API.Models;
     using Rigor.HAR.API.Services;
-    using System;
 
     public class Startup
     {
@@ -24,8 +23,8 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApiDbContext>(opt => opt
-                .UseInMemoryDatabase(ApiConstants.HarDB));
-                //.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                //.UseInMemoryDatabase(ApiConstants.HarDB));
+                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IHarFileRepository, HarFileRepository>();
             services.AddScoped<IHarFilesService, HarFilesService>();
@@ -43,8 +42,8 @@
                 app.UseDeveloperExceptionPage();
             }
 
-            //var dbContext = serviceProvider.GetService<ApiDbContext>();
-            //AddTestData(dbContext);
+            var dbContext = serviceProvider.GetService<ApiDbContext>();
+            // AddTestData(dbContext);
 
             app.UseResponseCompression();
 
