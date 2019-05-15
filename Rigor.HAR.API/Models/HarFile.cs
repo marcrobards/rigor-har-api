@@ -25,6 +25,5 @@
                 return this.HarContentString != null ? JsonConvert.DeserializeObject<Har>(this.HarContentString) : new Har();
             }
         }
-
     }
 }

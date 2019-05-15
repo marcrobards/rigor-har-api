@@ -2,7 +2,6 @@
 {
     using System;
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -35,14 +34,9 @@
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
+        public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            var dbContext = serviceProvider.GetService<ApiDbContext>();
+            // var dbContext = serviceProvider.GetService<ApiDbContext>();
             // AddTestData(dbContext);
 
             app.UseResponseCompression();
